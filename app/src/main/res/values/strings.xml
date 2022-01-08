@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ViolaDent</string>
+    <string name="search">Пощук</string>
+    <string name="call">Позвонити</string>
+</resources>

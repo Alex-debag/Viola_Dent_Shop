@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/about_us_viola"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/change_view"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/search_product"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@drawable/search_shape"
+            android:drawableStart="@drawable/ic_search_24"
+            android:hint="@string/search"
+            android:paddingStart="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/go_to_about_us"
+            app:layout_constraintStart_toEndOf="@+id/change_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:id="@+id/go_to_about_us"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_about_us_data"
+            android:backgroundTint="@color/blue_gear"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/come_to_categories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/blue_gear"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Категорії"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_view" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_selected_categories"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:orientation="horizontal"
+            android:foregroundGravity="center_horizontal"
+            android:layout_marginStart="10dp"
+            tools:listitem="@layout/holder_chose_recycler"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/come_to_categories"
+            app:layout_constraintTop_toBottomOf="@+id/search_product" />
+
+        <TextView
+            android:id="@+id/text_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="| Усі"
+            android:textSize="17sp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/come_to_categories"
+            app:layout_constraintStart_toEndOf="@+id/come_to_categories"
+            app:layout_constraintTop_toTopOf="@+id/come_to_categories" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refresh_product"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_us_viola">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/goods_recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/light_grey"
+            tools:itemCount="5"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layoutAnimation="@anim/recycler_layout_animation"
+            tools:listitem="@layout/holder_single_vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/about_us_viola" />
+
+        <ProgressBar
+            android:id="@+id/progres_product_download"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

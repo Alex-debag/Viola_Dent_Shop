@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viola_dent_navigation"
+    app:startDestination="@id/retailProduct">
+
+    <fragment
+        android:id="@+id/retailProduct"
+        android:name="soft.shope.violadent.fragment.retail_product.RetailProduct"
+        android:label="RetailProduct"
+        tools:layout="@layout/retail_product_main">
+        <action
+            android:id="@+id/action_retailProduct_to_aboutUs"
+            app:destination="@id/aboutUs"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_retailProduct_to_personProduct"
+            app:destination="@id/personProduct"
+            app:enterAnim="@anim/fragment_person_in_right"
+            app:exitAnim="@anim/fragment_person_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_retailProduct_to_categoriesProduct"
+            app:destination="@id/categoriesProduct"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="soft.shope.violadent.SplashScreen"
+        android:label="SplashScreen"
+        tools:layout="@layout/splash_screen"/>
+
+    <fragment
+        android:id="@+id/aboutUs"
+        android:name="soft.shope.violadent.fragment.about_us.AboutUs"
+        android:label="AboutUs"
+        tools:layout="@layout/about_us"/>
+    <fragment
+        android:id="@+id/personProduct"
+        android:name="soft.shope.violadent.fragment.person_product.PersonProduct"
+        android:label="PersonProduct"
+        tools:layout="@layout/product_personal_page"/>
+    <fragment
+        android:id="@+id/categoriesProduct"
+        android:name="soft.shope.violadent.fragment.categories.CategoriesProduct"
+        android:label="CategoriesProduct"
+        tools:layout="@layout/categories"/>
+</navigation>

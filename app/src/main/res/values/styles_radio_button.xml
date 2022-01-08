@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Radio_Button" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/blue_gear</item>
+        <item name="colorControlActivated">@color/blue_gear</item>
+    </style>
+</resources>

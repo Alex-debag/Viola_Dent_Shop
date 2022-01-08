@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/button_call_shape.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/button_transition_shape.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/holder_navigate.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_about_us_data.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_close_24.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_double_slot.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_image_one_round.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_image_two_round.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_one_big_slot.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_one_small_slot.xml" value="0.1555" />
+        <entry key="app/src/main/res/drawable/ic_violadent_logo_01.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/ic_violadent_logo_1.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/ic_violadent_logo_2.xml" value="0.106" />
+        <entry key="app/src/main/res/drawable/search_shape.xml" value="0.106" />
+        <entry key="app/src/main/res/layout/about_us.xml" value="0.22795115332428764" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/categories.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/header_product_list.xml" value="0.27469135802469136" />
+        <entry key="app/src/main/res/layout/holder_about_us.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/holder_categories_filter.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/holder_chose_recycler.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/holder_double.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/holder_double_horizontal.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/holder_header_recycler.xml" value="0.7641682942708333" />
+        <entry key="app/src/main/res/layout/holder_single_horizontal.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/holder_single_vertical.xml" value="0.24925816023738873" />
+        <entry key="app/src/main/res/layout/personal_product.xml" value="1.353125" />
+        <entry key="app/src/main/res/layout/produc_personal_page.xml" value="0.2679425837320574" />
+        <entry key="app/src/main/res/layout/product_personal_page.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/recycler_hint.xml" value="0.36541748046875" />
+        <entry key="app/src/main/res/layout/retail_product_double.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/retail_product_main.xml" value="0.3128491620111732" />
+        <entry key="app/src/main/res/layout/retail_product_single.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/retail_product_single_horizontal.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/retail_product_single_vertical.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/layout/splash_screen.xml" value="0.23645833333333333" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.106" />
+        <entry key="app/src/main/res/xml/hsigu.xml" value="0.10625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
