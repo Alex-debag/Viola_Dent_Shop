@@ -1,6 +1,6 @@
  # app name = "ViolaDent"
- # version = "1.0"
- # versionCode = 1
+ ##-u version = "1.0"
+ ## versionCode = 1
 
 ## Screen 1 "RetailProduct"
       The first screen contains a list of products, a button to change the configuration of a
