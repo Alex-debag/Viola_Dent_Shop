@@ -18,7 +18,7 @@ import soft.shope.violadent.parcer_file.ContactData
 
 class PersonProduct: Fragment() {
 // textView
-    private lateinit var textManufacturer: TextView
+   // private lateinit var textManufacturer: TextView
     private lateinit var textNameProduct: TextView
     private lateinit var textQuantity: TextView
     private lateinit var textPrise: TextView
@@ -43,7 +43,7 @@ class PersonProduct: Fragment() {
         buttonCall = view.findViewById(R.id.call_button)
         buttonTransitionLink = view.findViewById(R.id.link_button_transition)
 // textView
-        textManufacturer = view.findViewById(R.id.text_name_manufacturer)
+     //   textManufacturer = view.findViewById(R.id.text_name_manufacturer)
         textNameProduct = view.findViewById(R.id.text_name_product)
         textQuantity = view.findViewById(R.id.text_quantity)
         textPrise = view.findViewById(R.id.text_prise)
@@ -58,13 +58,13 @@ class PersonProduct: Fragment() {
         var url: String? = null
 // get show data personal product
         personProductViewModel.dataPageProduct.observe(activity as LifecycleOwner){
-            textManufacturer.text = it.manufacturer
+          //  textManufacturer.text = it.manufacturer
             textNameProduct.text = it.name_item
 
             url = it.link
 
             val quantity = "Наявнiсть: " + it.quantity
-            val prise = "₴" + it.price?.removeSuffix("00")?.lowercase()
+            val prise = "₴" + it.price?.removeSuffix(".00")?.lowercase()
 
             textQuantity.text = quantity
             textPrise.text = prise

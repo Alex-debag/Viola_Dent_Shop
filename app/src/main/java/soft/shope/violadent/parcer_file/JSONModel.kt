@@ -3,10 +3,11 @@ package soft.shope.violadent.parcer_file
 interface JSONModelProtocol // type json model
 interface JSONBodyProtocol // type body request
 // product model
-data class ItemsShop(var created: String? = "",
-                     var currency: String? = "",
-                     var encoding: String? = "",
-                     var items: List<ItemsShopList>? = null): JSONModelProtocol
+
+//data class ItemsShop(var created: String? = "",
+//                     var currency: String? = "",
+//                     var encoding: String? = "",
+//                     var items: List<ItemsShopList>? = null): JSONModelProtocol
 
 data class ItemsShopList( var id: String? = "",
                       var name_item: String? = "",
@@ -52,7 +53,7 @@ data class ContactData ( val introduction:String =
                          val email:String = "info@vikisoft.kiev.ua",
                          val urlSite:String = "https://violadent.com",
 
-                         val privacyPolicyUrl:String = "https://violadent.com/pol-conf/",
+                         val privacyPolicyUrl:String = "https://violadent.com/politika-konfidenczialnosti/",
                          var facebookUrl:String = "https://www.facebook.com/royal.ltd/",
                          val faceBookUrlApp:String = "fb://user?username=royal.ltd",
                          val telegramUrl:String = "https://t.me/royal_ltd",

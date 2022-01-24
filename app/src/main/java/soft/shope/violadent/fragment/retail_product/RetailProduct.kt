@@ -69,13 +69,18 @@ class RetailProduct : Fragment(){
 
         categoriesViewModel.categoryList.observe(activity as LifecycleOwner){
             categoriesRecycler.hint(textHint, it)
-            retailProductViewModel.updateCategoriesRecycler(categoriesRecycler, it, context, categoriesViewModel)
+            categoriesRecycler.hint(goToCategories, it)
+            retailProductViewModel.updateCategoriesRecycler(categoriesRecycler, it, context,
+                categoriesViewModel, activity)
         }
 
         goToAboutUs.setOnClickListener {
             (activity as MainActivity).navController.navigate(R.id.action_retailProduct_to_aboutUs)
         }
         goToCategories.setOnClickListener {
+            (activity as MainActivity).navController.navigate(R.id.action_retailProduct_to_categoriesProduct)
+        }
+        textHint.setOnClickListener {
             (activity as MainActivity).navController.navigate(R.id.action_retailProduct_to_categoriesProduct)
         }
 
@@ -101,14 +106,16 @@ class RetailProduct : Fragment(){
             }
 
             if (listProduct?.isEmpty() == true && it.isEmpty()){
+                refresh.startAndStop(true)
                 categoriesRecycler.hint(textHint)
+                categoriesRecycler.hint(goToCategories)
                 retailProductViewModel.getProductList(parserViewModel){ fullList ->
                     retailProductViewModel.productList.postValue(fullList)
                 }
+            }else{
+                retailProductViewModel.cashProduct(listProduct, share, activity, personProductViewModel, context,
+                    goodsRecycler, refresh)
             }
-            retailProductViewModel.cashProduct(listProduct, share, activity, personProductViewModel, context,
-                goodsRecycler, refresh)
-          //  println("listProduct == $listProduct, itList == $it")
         }
 
         val numFormat = share?.getInt(ShareKeyToSave.FORMAT.name, 0) ?: 0

@@ -3,6 +3,7 @@ package soft.shope.violadent.fragment.categories
 import android.content.Context
 import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,8 +22,11 @@ class CategoriesViewModel : ViewModel() {
     val categoryList: MutableLiveData<List<CategoryList>> by lazy {
         MutableLiveData()
     }
+    val selectedListCategory: MutableLiveData<List<CategoryList>> by lazy {
+        MutableLiveData()
+    }
 // update recycler with categories
-    private fun updatesCategoriesRecycler(recyclerView: RecyclerView, list: List<CategoryList>?,
+fun updatesCategoriesRecycler(recyclerView: RecyclerView, list: List<CategoryList>?,
                                           context: Context?, activity: FragmentActivity?,
                                           buttonSaveList: TextView,
                                           retailProductViewModel: RetailProductViewModel){
@@ -41,7 +45,7 @@ class CategoriesViewModel : ViewModel() {
     // make response
         ParserJsonViewModel().getResponse( dataClass = Category(),
                                            baseURLString = "https://violadent.com/AndroidAPI/",
-                                           typeRequest = TypeRequest().post,
+                                           typeRequest = TypeRequest.post,
                                            body = CategoriesBody().getBody()){ category ->
 
             viewModelScope.launch(Dispatchers.Main) {
@@ -53,6 +57,9 @@ class CategoriesViewModel : ViewModel() {
                                            buttonSaveList = buttonSaveList,
                                            retailProductViewModel = retailProductViewModel)
                 refreshCategories.startAndStop(false)
+
+                selectedListCategory.value = category?.data
+
             }
         }
     }

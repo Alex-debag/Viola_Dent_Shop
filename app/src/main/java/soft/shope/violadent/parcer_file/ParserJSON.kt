@@ -7,13 +7,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.*
 import java.io.IOException
+import java.util.*
 
 interface RequestTypeProtocol
 
 class ParserJsonViewModel : ViewModel() {
 
    fun <T : JSONModelProtocol> getResponse( dataClass: T? , baseURLString: String,
-                                            typeRequest: String = TypeRequest().get,
+                                            typeRequest: String = TypeRequest.get,
                                             body: RequestBody? = null,
                                             res: (T?) -> (Unit)) {
        // println(baseURLString)
@@ -104,9 +105,12 @@ class ParserJsonViewModel : ViewModel() {
 
 
 // model type request
-data class TypeRequest(
-    val get: String = "GET",
-    val post: String = "POST",
-    val delete: String = "DELETE",
-    val put: String = "PUT"
-) : RequestTypeProtocol
+class TypeRequest(
+) : RequestTypeProtocol {
+    companion object {
+        const val get: String = "GET"
+        const val post: String = "POST"
+        const val delete: String = "DELETE"
+        const val put: String = "PUT"
+    }
+}

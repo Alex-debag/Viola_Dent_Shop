@@ -28,17 +28,26 @@
             android:background="@drawable/ic_close_24"
             android:backgroundTint="@color/grey" />
 
-        <TextView
-            android:id="@+id/text_name_manufacturer"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:text="OrangeDental"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="19sp"
-            android:textStyle="bold"
+<!--        <TextView-->
+<!--            android:id="@+id/text_name_manufacturer"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:text="OrangeDental"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:gravity="center"-->
+<!--            android:textSize="19sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/go_to_website"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/close_view"-->
+<!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="43.9011572dp"
+            android:background="@drawable/ic_violadent_logo_2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/go_to_website"
             app:layout_constraintStart_toEndOf="@+id/close_view"

@@ -18,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import soft.shope.violadent.R
+import soft.shope.violadent.extensions.startAndStop
 import soft.shope.violadent.fragment.categories.CategoriesViewModel
 import soft.shope.violadent.fragment.person_product.PersonProductViewModel
 import soft.shope.violadent.parcer_file.CategoryList
@@ -40,12 +41,17 @@ class RetailProductViewModel : ViewModel(){
     }
 // for update categories
     fun updateCategoriesRecycler( categoriesRecycler: RecyclerView, categoryList: List<CategoryList>?,
-                                  context: Context?, categoriesViewModel: CategoriesViewModel){
+          context: Context?, categoriesViewModel: CategoriesViewModel, activity: FragmentActivity?){
+
         categoriesRecycler.layoutManager = LinearLayoutManager( context,
             LinearLayoutManager.HORIZONTAL,false )
-        categoriesRecycler.adapter = CategoriesRetailAdapter( categoriesList = categoryList,
-                                                              retailProductViewModel = this,
-                                                              categoriesViewModel = categoriesViewModel )
+
+        categoriesRecycler.adapter = categoryList?.let {
+            CategoriesRetailAdapter( categoriesList = it,
+                                     retailProductViewModel = this,
+                                     categoriesViewModel = categoriesViewModel,
+                                     activity = activity )
+        }
 
     }
 
@@ -153,7 +159,7 @@ private fun changeChoseFormat(format: Int) : Int{
     personViewModel: PersonProductViewModel, context: Context?, goodsRecycler: RecyclerView,
     refresh: SwipeRefreshLayout) {
 
-        startStopRefresh(refresh, false)
+        refresh.startAndStop(false)
 
         val getFormat = share?.getInt(ShareKeyToSave.FORMAT.name, 0) ?: 0
 

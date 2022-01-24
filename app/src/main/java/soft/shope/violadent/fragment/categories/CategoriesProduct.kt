@@ -12,14 +12,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import kotlinx.coroutines.job
-import kotlinx.coroutines.runBlocking
 import soft.shope.violadent.MainActivity
 import soft.shope.violadent.R
 import soft.shope.violadent.extensions.startAndStop
 import soft.shope.violadent.fragment.retail_product.RetailProductViewModel
-import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.coroutineContext
+import soft.shope.violadent.parcer_file.CategoryList
 
 class CategoriesProduct : Fragment() {
 // buttonNavigation
@@ -49,13 +46,34 @@ class CategoriesProduct : Fragment() {
         refreshCategories = view.findViewById(R.id.refresh_categories)
 
         backCategoriesButton.setOnClickListener {
-                (activity as MainActivity).navController.popBackStack()
+            (activity as MainActivity).navController.popBackStack()
+            categoriesViewModel.categoryList.value = emptyList()
         }
 // for start and stop refresh layout
         refreshCategories.startAndStop(true)
 // make response for categories and update recycler
-        categoriesViewModel.getAndUpdateCategoriesList(recyclerCategories, context,
-            activity, saveCategoriesButton, refreshCategories, retailViewModel)
+        var listCat = emptyList<CategoryList>()
+        var listFilterCat = emptyList<CategoryList>()
+
+        categoriesViewModel.categoryList.observe(activity as LifecycleOwner){ list ->
+            listFilterCat = list
+        }
+
+        categoriesViewModel.selectedListCategory.observe(activity as LifecycleOwner){ list ->
+            listCat = list
+        }
+
+        when(listCat.isEmpty()){
+            true -> categoriesViewModel.getAndUpdateCategoriesList(recyclerCategories, context,
+                activity, saveCategoriesButton, refreshCategories, retailViewModel)
+
+            else -> {
+                listCat.map { i -> i.check = listFilterCat.contains(i) }
+
+                categoriesViewModel.updatesCategoriesRecycler(recyclerCategories, listCat, context,
+                    activity, saveCategoriesButton, retailViewModel)
+                    refreshCategories.startAndStop(false) }
+        }
 
         return view
     }

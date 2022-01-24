@@ -20,10 +20,8 @@ class GoodsAdapter (private val list: List<ItemsShopList>,
                     private val activity: FragmentActivity?)
     : RecyclerView.Adapter<GoodsAdapter.GoodsHolder>(){
 
-
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): GoodsHolder {
-
         val view = LayoutInflater.from(parent.context)
             .inflate(productViewModel.getHolder(holder), parent, false)
         return GoodsHolder(view, list, activity, personProductViewModel)
@@ -42,7 +40,7 @@ class GoodsAdapter (private val list: List<ItemsShopList>,
         holder.nameProduct.text = productList.name_item
         holder.manufacturer.text = productList.manufacturer
 
-        val loverPrise = "₴" + productList.price?.removeSuffix("00")?.lowercase()
+        val loverPrise = "₴" + productList.price?.removeSuffix(".00")?.lowercase()
 
         holder.priseProduct.text = loverPrise
     }
