@@ -1,6 +1,13 @@
+<<<<<<< HEAD
  # app name = "ViolaDent"
  ##-u version = "1.0"
  ## versionCode = 1
+=======
+# Viola_Dent_Shop
+## app name = "ViolaDent"
+## version = "1.0"
+## versionCode = 1
+>>>>>>> 08153b5f2878e6095eb6eb3f9953d1555bcc1904
 
 ## Screen 1 "RetailProduct"
       The first screen contains a list of products, a button to change the configuration of a
@@ -19,9 +26,12 @@
 ## Screen 4 "AboutUs"
       There is general information about the company and the ability to go to social networks
       by clicking on the buttons marked with pictures of these social networks.
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 08153b5f2878e6095eb6eb3f9953d1555bcc1904
