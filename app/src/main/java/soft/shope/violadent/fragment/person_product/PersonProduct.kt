@@ -81,9 +81,7 @@ class PersonProduct: Fragment() {
         }
 // call on support phone
         buttonCall.setOnClickListener { // string extension
-            ContactData().contactPhone.makePhoneCall( thisFragment = this,
-                                                      requestCall = 0,
-                                                      activity = activity )
+            ContactData().contactPhone.makePhoneCall( this )
         }
         buttonTransitionLink.setOnClickListener {
             url?.followLink(this)

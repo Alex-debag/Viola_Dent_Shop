@@ -61,7 +61,7 @@ class AboutUs : Fragment() {
         privacyPolicy.setOnClickListener { aboutUsViewModel.goToUrl(activity, ContactData().privacyPolicyUrl) }
         website.setOnClickListener { aboutUsViewModel.goToUrl(activity, ContactData().urlSite) }
 // update recycler with information about us
-        aboutUsViewModel.updateRecyclerInform(recyclerInform, context)
+        aboutUsViewModel.updateRecyclerInform(recyclerInform, context, this)
         recyclerInform.isNestedScrollingEnabled = false // prohibition scroll
 
         return view

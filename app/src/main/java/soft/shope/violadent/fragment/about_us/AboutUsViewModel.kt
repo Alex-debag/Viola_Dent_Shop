@@ -3,6 +3,7 @@ package soft.shope.violadent.fragment.about_us
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,7 +12,7 @@ import soft.shope.violadent.parcer_file.ContactData
 
 class AboutUsViewModel: ViewModel() {
     // for update recycler with information about us
-    fun updateRecyclerInform(recycler: RecyclerView, context: Context?) {
+    fun updateRecyclerInform(recycler: RecyclerView, context: Context?, fragment: Fragment) {
 
         val listInform = listOf(
             Inform("", ContactData().introduction),
@@ -21,7 +22,7 @@ class AboutUsViewModel: ViewModel() {
         )
 
         recycler.layoutManager = LinearLayoutManager(context)
-        recycler.adapter = ContactDataAdapter(listInform)
+        recycler.adapter = ContactDataAdapter(listInform, fragment)
 
     }
    // for go to url address // make extension String

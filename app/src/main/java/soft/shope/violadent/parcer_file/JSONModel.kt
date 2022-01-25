@@ -53,7 +53,7 @@ data class ContactData ( val introduction:String =
                          val email:String = "info@vikisoft.kiev.ua",
                          val urlSite:String = "https://violadent.com",
 
-                         val privacyPolicyUrl:String = "https://violadent.com/politika-konfidenczialnosti/",
+                         val privacyPolicyUrl:String = "https://violadent.com/politika-konfidenczijnosti/",
                          var facebookUrl:String = "https://www.facebook.com/royal.ltd/",
                          val faceBookUrlApp:String = "fb://user?username=royal.ltd",
                          val telegramUrl:String = "https://t.me/royal_ltd",

@@ -1,6 +1,7 @@
 package soft.shope.violadent.extensions
 
 import android.Manifest
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,6 +10,7 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.util.Base64
+import android.util.Log
 import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -53,19 +55,35 @@ fun String.getImageFromLink(context: Context, imageView: ImageView){
 }
 
 // for request permission to call and create a call
-fun String.makePhoneCall(thisFragment: Fragment, requestCall: Int, activity: FragmentActivity?) {
+fun String.makePhoneCall(thisFragment: Fragment) {
 
-    if(ActivityCompat.checkSelfPermission(thisFragment.requireContext(),
-            Manifest.permission.CALL_PHONE
-        ) != PackageManager.PERMISSION_GRANTED
-    ){
-        ActivityCompat.requestPermissions(thisFragment.requireActivity(),
-            arrayOf(Manifest.permission.CALL_PHONE),
-            requestCall)
-    }else{
+    thisFragment.checkPermission(Manifest.permission.CALL_PHONE){
         val intent = Intent(Intent.ACTION_CALL)
         intent.data = Uri.parse("tel:$this")
 
-        activity?.startActivityFromFragment(thisFragment, intent, 0)
+        thisFragment.activity?.startActivityFromFragment(thisFragment, intent, 0)
     }
+}
+
+// for open gmail
+fun String.openGmail( fragment: Fragment ){
+    try {
+        val intent =
+            Intent(Intent.ACTION_VIEW, Uri.parse("mailto:$this"))
+//                           intent.putExtra(Intent.EXTRA_SUBJECT, "your_subject")
+//                           intent.putExtra(Intent.EXTRA_TEXT, "your_text")
+        fragment.startActivity(intent)
+    } catch (e: ActivityNotFoundException) {
+        Log.e("ERROR", e.message.toString())
+    }
+}
+
+// for open google map
+fun String.openMap(fragment: Fragment){
+
+    val gmmIntentUri = Uri.parse(this)
+    val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+    mapIntent.setPackage("com.google.android.apps.maps")
+    fragment.startActivity(mapIntent)
+
 }
