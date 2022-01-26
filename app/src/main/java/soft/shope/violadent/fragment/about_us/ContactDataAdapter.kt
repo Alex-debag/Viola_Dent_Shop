@@ -1,9 +1,5 @@
 package soft.shope.violadent.fragment.about_us
 
-import android.content.ActivityNotFoundException
-import android.content.Intent
-import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +10,6 @@ import soft.shope.violadent.R
 import soft.shope.violadent.extensions.makePhoneCall
 import soft.shope.violadent.extensions.openGmail
 import soft.shope.violadent.extensions.openMap
-
 
 class ContactDataAdapter(private val list: List<Inform>,
                          private val fragment: Fragment)

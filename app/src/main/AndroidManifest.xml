@@ -22,6 +22,7 @@
         <activity
             android:name=".SplashScreen"
             android:exported="true"
+            android:theme="@style/SplashActivityStyle"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
